@@ -1,6 +1,6 @@
 {
   "name": "curseforge-js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Framework-agnostic JavaScript API client for the CurseForge API",
   "type": "module",
   "exports": {
