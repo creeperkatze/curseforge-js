@@ -1,7 +1,7 @@
 :root {
   --vp-c-brand-1: #f16436;
-  --vp-c-brand-2: #f37e57;
-  --vp-c-brand-3: #f6987b;
+  --vp-c-brand-2: #f27449;
+  --vp-c-brand-3: #f4835d;
   --vp-c-brand-soft: #f1643624;
   --vp-c-brand-bg: var(--vp-c-brand-3);
   --vp-c-brand-hover: var(--vp-c-brand-2);
@@ -9,9 +9,9 @@
 }
 
 .dark {
-  --vp-c-brand-1: #f37e57;
-  --vp-c-brand-2: #f6987b;
-  --vp-c-brand-3: #f9b29f;
+  --vp-c-brand-1: #f16436;
+  --vp-c-brand-2: #f27449;
+  --vp-c-brand-3: #f4835d;
   --vp-c-brand-soft: #f164362e;
   --vp-c-brand-bg: var(--vp-c-brand-3);
   --vp-c-brand-hover: var(--vp-c-brand-2);
