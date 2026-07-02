@@ -31,9 +31,14 @@ export enum GameVersionTypeStatus {
 
 /** Icon, tile and cover art for a game. */
 export interface GameAssets {
-  iconUrl: string;
-  tileUrl: string;
-  coverUrl: string;
+  iconUrl: string | null;
+  tileUrl: string | null;
+  coverUrl: string | null;
+}
+
+/** Feature flags describing what a game supports. */
+export interface GameSupportedFeatures {
+  supportModSubscriptions: boolean;
 }
 
 /** A game available on CurseForge. */
@@ -45,6 +50,7 @@ export interface Game {
   assets: GameAssets;
   status: CoreStatus;
   apiStatus: CoreApiStatus;
+  supportedFeatures: GameSupportedFeatures;
 }
 
 /** A single named/sluggable version of a game (used by the v2 versions endpoint). */
@@ -78,3 +84,48 @@ export interface GameVersionType {
 
 /** Query parameters for {@link GamesApi.list}. */
 export type GetGamesOptions = PaginationOptions;
+
+/**
+ * Game ids on CurseForge, as returned by {@link GamesApi.list}.
+ * @remarks Not part of the CurseForge API contract, games are added over time and this list can go stale. Use {@link GamesApi.list} for the authoritative, current list.
+ */
+export enum GameId {
+  WorldOfWarcraft = 1,
+  TheSecretWorld = 64,
+  StarCraftII = 65,
+  RunesOfMagic = 335,
+  WorldOfTanks = 423,
+  Rift = 424,
+  Terraria = 431,
+  Minecraft = 432,
+  WildStar = 454,
+  TheElderScrollsOnline = 455,
+  DarkestDungeon = 608,
+  StardewValley = 669,
+  SidMeiersCivilizationVI = 727,
+  KerbalSpaceProgram = 4401,
+  SecretWorldLegends = 4455,
+  FinalFantasyIV = 4741,
+  FinalFantasyVI = 4773,
+  FinalFantasyII = 5001,
+  FinalFantasyV = 5021,
+  FinalFantasyIII = 5026,
+  FinalFantasyI = 5230,
+  SurvivingMars = 61489,
+  MinecraftDungeons = 69271,
+  AmongUs = 69761,
+  Hytale = 70216,
+  ChroniclesOfArcadia = 70667,
+  MinecraftBedrock = 78022,
+  TheSims4 = 78062,
+  Demeo = 78135,
+  ArkSurvivalAscended = 83374,
+  RushdownRevolt = 84062,
+  TennisElbow4 = 84137,
+  Palworld = 85196,
+  Helldivers2 = 85440,
+  HogwartsLegacy = 87986,
+  InZoi = 88849,
+  Windrose = 99078,
+  Subnautica2 = 99704,
+}

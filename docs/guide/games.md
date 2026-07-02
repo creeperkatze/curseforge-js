@@ -9,6 +9,14 @@ const { data: games, pagination } = await client.games.list({ pageSize: 50 });
 const minecraft = await client.games.get(432);
 ```
 
+`GameId` provides a few well-known game ids as a convenience, it's a non-exhaustive snapshot, not part of the API contract, so prefer `client.games.list()` if you need the authoritative, current list.
+
+```ts
+import { GameId } from 'curseforge-js';
+
+const minecraft = await client.games.get(GameId.Minecraft);
+```
+
 ## Game versions
 
 ```ts

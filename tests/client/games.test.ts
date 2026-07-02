@@ -12,6 +12,7 @@ const MOCK_GAME: Game = {
   assets: { iconUrl: '', tileUrl: '', coverUrl: '' },
   status: CoreStatus.Live,
   apiStatus: CoreApiStatus.Public,
+  supportedFeatures: { supportModSubscriptions: false },
 };
 
 describe('GamesApi', () => {
