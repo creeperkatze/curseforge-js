@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: curseforge-js
-  tagline: A framework-agnostic JavaScript client for the CurseForge API.
+  tagline: A framework-agnostic fully typed JavaScript client for the CurseForge API.
   actions:
     - theme: brand
       text: Getting Started

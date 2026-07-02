@@ -95,7 +95,7 @@ export default defineConfig({
     plugins: [tailwindcss(), svgLoader()],
   },
   title: "curseforge-js",
-  description: "A framework-agnostic JavaScript client for the CurseForge API.",
+  description: "A framework-agnostic fully typed JavaScript client for the CurseForge API.",
   base,
   cleanUrls: true,
   themeConfig: {
