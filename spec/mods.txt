@@ -1,0 +1,1084 @@
+Mods
+Search Mods
+
+Code samples
+
+GET /v1/mods/search?gameId=0 HTTP/1.1
+
+Accept: application/json
+
+GET /v1/mods/search
+
+Get all mods that match the search criteria.
+
+Parameters
+Name	In	Type	Required	Description
+gameId	query	integer(int32)	true	Filter by game id.
+classId	query	integer(int32)	false	Filter by section id (discoverable via Categories)
+categoryId	query	integer(int32)	false	Filter by category id
+categoryIds	query	string	false	Filter by a list of category ids - this will override categoryId
+gameVersion	query	string	false	Filter by game version string
+gameVersions	query	string	false	Filter by a list of game version strings - this will override
+searchFilter	query	string	false	Filter by free text search in the mod name and author
+sortField	query	ModsSearchSortField	false	Filter by ModsSearchSortField enumeration
+sortOrder	query	SortOrder	false	'asc' if sort is in ascending order, 'desc' if sort is in descending order
+modLoaderType	query	ModLoaderType	false	Filter only mods associated to a given modloader (Forge, Fabric ...). Must be coupled with gameVersion.
+modLoaderTypes	query	string	false	Filter by a list of mod loader types - this will override modLoaderType
+gameVersionTypeId	query	integer(int32)	false	Filter only mods that contain files tagged with versions of the given gameVersionTypeId
+authorId	query	integer(int32)	false	Filter only mods that the given authorId is a member of.
+primaryAuthorId	query	integer(int32)	false	Filter only mods that the given primaryAuthorId is the owner of.
+slug	query	string	false	Filter by slug (coupled with classId will result in a unique result).
+index	query	integer(int32)	false	A zero based index of the first item to include in the response, the limit is: (index + pageSize <= 10,000).
+pageSize	query	integer(int32)	false	The number of items to include in the response, the default/maximum value is 50.
+Detailed descriptions
+categoryIds: Filter by a list of category ids - this will override categoryId categoryIds=[1,2,3...]
+
+The maximum allowed category ids per query is 10
+
+gameVersions: Filter by a list of game version strings - this will override gameVersion
+
+gameVersions=["1.19.1", "1.19.2", "1.20.1" ...]
+
+The maximum allowed category ids per query is 4
+
+modLoaderTypes: Filter by a list of mod loader types - this will override modLoaderType modLoaderTypes=[Forge, Fabric, ...]
+
+Max values = 5
+
+Enumerated Values
+Parameter	Value
+sortField	1
+sortField	2
+sortField	3
+sortField	4
+sortField	5
+sortField	6
+sortField	7
+sortField	8
+sortField	9
+sortField	10
+sortField	11
+sortField	12
+sortOrder	asc
+sortOrder	desc
+modLoaderType	0
+modLoaderType	1
+modLoaderType	2
+modLoaderType	3
+modLoaderType	4
+modLoaderType	5
+modLoaderType	6
+Example responses
+
+200 Response
+
+{
+  "data": [
+    {
+      "id": 0,
+      "gameId": 0,
+      "name": "string",
+      "slug": "string",
+      "links": {
+        "websiteUrl": "string",
+        "wikiUrl": "string",
+        "issuesUrl": "string",
+        "sourceUrl": "string"
+      },
+      "summary": "string",
+      "status": 1,
+      "downloadCount": 0,
+      "isFeatured": true,
+      "primaryCategoryId": 0,
+      "categories": [
+        {
+          "id": 0,
+          "gameId": 0,
+          "name": "string",
+          "slug": "string",
+          "url": "string",
+          "iconUrl": "string",
+          "dateModified": "2019-08-24T14:15:22Z",
+          "isClass": true,
+          "classId": 0,
+          "parentCategoryId": 0,
+          "displayIndex": 0
+        }
+      ],
+      "classId": 0,
+      "authors": [
+        {
+          "id": 0,
+          "name": "string",
+          "url": "string"
+        }
+      ],
+      "logo": {
+        "id": 0,
+        "modId": 0,
+        "title": "string",
+        "description": "string",
+        "thumbnailUrl": "string",
+        "url": "string"
+      },
+      "screenshots": [
+        {
+          "id": 0,
+          "modId": 0,
+          "title": "string",
+          "description": "string",
+          "thumbnailUrl": "string",
+          "url": "string"
+        }
+      ],
+      "mainFileId": 0,
+      "latestFiles": [
+        {
+          "id": 0,
+          "gameId": 0,
+          "modId": 0,
+          "isAvailable": true,
+          "displayName": "string",
+          "fileName": "string",
+          "releaseType": 1,
+          "fileStatus": 1,
+          "hashes": [
+            {
+              "value": "string",
+              "algo": 1
+            }
+          ],
+          "fileDate": "2019-08-24T14:15:22Z",
+          "fileLength": 0,
+          "downloadCount": 0,
+          "fileSizeOnDisk": 0,
+          "downloadUrl": "string",
+          "gameVersions": [
+            "string"
+          ],
+          "sortableGameVersions": [
+            {
+              "gameVersionName": "string",
+              "gameVersionPadded": "string",
+              "gameVersion": "string",
+              "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+              "gameVersionTypeId": 0
+            }
+          ],
+          "dependencies": [
+            {
+              "modId": 0,
+              "relationType": 1
+            }
+          ],
+          "exposeAsAlternative": true,
+          "parentProjectFileId": 0,
+          "alternateFileId": 0,
+          "isServerPack": true,
+          "serverPackFileId": 0,
+          "isEarlyAccessContent": true,
+          "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+          "fileFingerprint": 0,
+          "modules": [
+            {
+              "name": "string",
+              "fingerprint": 0
+            }
+          ]
+        }
+      ],
+      "latestFilesIndexes": [
+        {
+          "gameVersion": "string",
+          "fileId": 0,
+          "filename": "string",
+          "releaseType": 1,
+          "gameVersionTypeId": 0,
+          "modLoader": 0
+        }
+      ],
+      "latestEarlyAccessFilesIndexes": [
+        {
+          "gameVersion": "string",
+          "fileId": 0,
+          "filename": "string",
+          "releaseType": 1,
+          "gameVersionTypeId": 0,
+          "modLoader": 0
+        }
+      ],
+      "dateCreated": "2019-08-24T14:15:22Z",
+      "dateModified": "2019-08-24T14:15:22Z",
+      "dateReleased": "2019-08-24T14:15:22Z",
+      "allowModDistribution": true,
+      "gamePopularityRank": 0,
+      "isAvailable": true,
+      "thumbsUpCount": 0,
+      "rating": 0
+    }
+  ],
+  "pagination": {
+    "index": 0,
+    "pageSize": 0,
+    "resultCount": 0,
+    "totalCount": 0
+  }
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Search Mods Response
+400	Bad Request	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Mod
+
+Code samples
+
+GET /v1/mods/{modId} HTTP/1.1
+
+Accept: application/json
+
+GET /v1/mods/{modId}
+
+Get a single mod.
+
+Parameters
+Name	In	Type	Required	Description
+modId	path	integer(int32)	true	The mod id
+Example responses
+
+200 Response
+
+{
+  "data": {
+    "id": 0,
+    "gameId": 0,
+    "name": "string",
+    "slug": "string",
+    "links": {
+      "websiteUrl": "string",
+      "wikiUrl": "string",
+      "issuesUrl": "string",
+      "sourceUrl": "string"
+    },
+    "summary": "string",
+    "status": 1,
+    "downloadCount": 0,
+    "isFeatured": true,
+    "primaryCategoryId": 0,
+    "categories": [
+      {
+        "id": 0,
+        "gameId": 0,
+        "name": "string",
+        "slug": "string",
+        "url": "string",
+        "iconUrl": "string",
+        "dateModified": "2019-08-24T14:15:22Z",
+        "isClass": true,
+        "classId": 0,
+        "parentCategoryId": 0,
+        "displayIndex": 0
+      }
+    ],
+    "classId": 0,
+    "authors": [
+      {
+        "id": 0,
+        "name": "string",
+        "url": "string"
+      }
+    ],
+    "logo": {
+      "id": 0,
+      "modId": 0,
+      "title": "string",
+      "description": "string",
+      "thumbnailUrl": "string",
+      "url": "string"
+    },
+    "screenshots": [
+      {
+        "id": 0,
+        "modId": 0,
+        "title": "string",
+        "description": "string",
+        "thumbnailUrl": "string",
+        "url": "string"
+      }
+    ],
+    "mainFileId": 0,
+    "latestFiles": [
+      {
+        "id": 0,
+        "gameId": 0,
+        "modId": 0,
+        "isAvailable": true,
+        "displayName": "string",
+        "fileName": "string",
+        "releaseType": 1,
+        "fileStatus": 1,
+        "hashes": [
+          {
+            "value": "string",
+            "algo": 1
+          }
+        ],
+        "fileDate": "2019-08-24T14:15:22Z",
+        "fileLength": 0,
+        "downloadCount": 0,
+        "fileSizeOnDisk": 0,
+        "downloadUrl": "string",
+        "gameVersions": [
+          "string"
+        ],
+        "sortableGameVersions": [
+          {
+            "gameVersionName": "string",
+            "gameVersionPadded": "string",
+            "gameVersion": "string",
+            "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+            "gameVersionTypeId": 0
+          }
+        ],
+        "dependencies": [
+          {
+            "modId": 0,
+            "relationType": 1
+          }
+        ],
+        "exposeAsAlternative": true,
+        "parentProjectFileId": 0,
+        "alternateFileId": 0,
+        "isServerPack": true,
+        "serverPackFileId": 0,
+        "isEarlyAccessContent": true,
+        "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+        "fileFingerprint": 0,
+        "modules": [
+          {
+            "name": "string",
+            "fingerprint": 0
+          }
+        ]
+      }
+    ],
+    "latestFilesIndexes": [
+      {
+        "gameVersion": "string",
+        "fileId": 0,
+        "filename": "string",
+        "releaseType": 1,
+        "gameVersionTypeId": 0,
+        "modLoader": 0
+      }
+    ],
+    "latestEarlyAccessFilesIndexes": [
+      {
+        "gameVersion": "string",
+        "fileId": 0,
+        "filename": "string",
+        "releaseType": 1,
+        "gameVersionTypeId": 0,
+        "modLoader": 0
+      }
+    ],
+    "dateCreated": "2019-08-24T14:15:22Z",
+    "dateModified": "2019-08-24T14:15:22Z",
+    "dateReleased": "2019-08-24T14:15:22Z",
+    "allowModDistribution": true,
+    "gamePopularityRank": 0,
+    "isAvailable": true,
+    "thumbsUpCount": 0,
+    "rating": 0
+  }
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Mod Response
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Mods
+
+Code samples
+
+POST /v1/mods HTTP/1.1
+
+Content-Type: application/json
+Accept: application/json
+
+POST /v1/mods
+
+Get a list of mods belonging the the same game.
+
+Body parameter
+
+{
+  "modIds": [
+    0
+  ],
+  "filterPcOnly": true
+}
+Parameters
+Name	In	Type	Required	Description
+body	body	GetModsByIdsListRequestBody	true	Request body containing an array of mod ids, mod ids must belong to the same game.
+Example responses
+
+200 Response
+
+{
+  "data": [
+    {
+      "id": 0,
+      "gameId": 0,
+      "name": "string",
+      "slug": "string",
+      "links": {
+        "websiteUrl": "string",
+        "wikiUrl": "string",
+        "issuesUrl": "string",
+        "sourceUrl": "string"
+      },
+      "summary": "string",
+      "status": 1,
+      "downloadCount": 0,
+      "isFeatured": true,
+      "primaryCategoryId": 0,
+      "categories": [
+        {
+          "id": 0,
+          "gameId": 0,
+          "name": "string",
+          "slug": "string",
+          "url": "string",
+          "iconUrl": "string",
+          "dateModified": "2019-08-24T14:15:22Z",
+          "isClass": true,
+          "classId": 0,
+          "parentCategoryId": 0,
+          "displayIndex": 0
+        }
+      ],
+      "classId": 0,
+      "authors": [
+        {
+          "id": 0,
+          "name": "string",
+          "url": "string"
+        }
+      ],
+      "logo": {
+        "id": 0,
+        "modId": 0,
+        "title": "string",
+        "description": "string",
+        "thumbnailUrl": "string",
+        "url": "string"
+      },
+      "screenshots": [
+        {
+          "id": 0,
+          "modId": 0,
+          "title": "string",
+          "description": "string",
+          "thumbnailUrl": "string",
+          "url": "string"
+        }
+      ],
+      "mainFileId": 0,
+      "latestFiles": [
+        {
+          "id": 0,
+          "gameId": 0,
+          "modId": 0,
+          "isAvailable": true,
+          "displayName": "string",
+          "fileName": "string",
+          "releaseType": 1,
+          "fileStatus": 1,
+          "hashes": [
+            {
+              "value": "string",
+              "algo": 1
+            }
+          ],
+          "fileDate": "2019-08-24T14:15:22Z",
+          "fileLength": 0,
+          "downloadCount": 0,
+          "fileSizeOnDisk": 0,
+          "downloadUrl": "string",
+          "gameVersions": [
+            "string"
+          ],
+          "sortableGameVersions": [
+            {
+              "gameVersionName": "string",
+              "gameVersionPadded": "string",
+              "gameVersion": "string",
+              "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+              "gameVersionTypeId": 0
+            }
+          ],
+          "dependencies": [
+            {
+              "modId": 0,
+              "relationType": 1
+            }
+          ],
+          "exposeAsAlternative": true,
+          "parentProjectFileId": 0,
+          "alternateFileId": 0,
+          "isServerPack": true,
+          "serverPackFileId": 0,
+          "isEarlyAccessContent": true,
+          "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+          "fileFingerprint": 0,
+          "modules": [
+            {
+              "name": "string",
+              "fingerprint": 0
+            }
+          ]
+        }
+      ],
+      "latestFilesIndexes": [
+        {
+          "gameVersion": "string",
+          "fileId": 0,
+          "filename": "string",
+          "releaseType": 1,
+          "gameVersionTypeId": 0,
+          "modLoader": 0
+        }
+      ],
+      "latestEarlyAccessFilesIndexes": [
+        {
+          "gameVersion": "string",
+          "fileId": 0,
+          "filename": "string",
+          "releaseType": 1,
+          "gameVersionTypeId": 0,
+          "modLoader": 0
+        }
+      ],
+      "dateCreated": "2019-08-24T14:15:22Z",
+      "dateModified": "2019-08-24T14:15:22Z",
+      "dateReleased": "2019-08-24T14:15:22Z",
+      "allowModDistribution": true,
+      "gamePopularityRank": 0,
+      "isAvailable": true,
+      "thumbsUpCount": 0,
+      "rating": 0
+    }
+  ]
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Mods Response
+400	Bad Request	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Featured Mods
+
+Code samples
+
+POST /v1/mods/featured HTTP/1.1
+
+Content-Type: application/json
+Accept: application/json
+
+POST /v1/mods/featured
+
+Get a list of featured, popular and recently updated mods.
+
+Body parameter
+
+{
+  "gameId": 0,
+  "excludedModIds": [
+    0
+  ],
+  "gameVersionTypeId": 0
+}
+Parameters
+Name	In	Type	Required	Description
+body	body	GetFeaturedModsRequestBody	true	Match results for a game and exclude specific mods
+Example responses
+
+200 Response
+
+{
+  "data": {
+    "featured": [
+      {
+        "id": 0,
+        "gameId": 0,
+        "name": "string",
+        "slug": "string",
+        "links": {
+          "websiteUrl": "string",
+          "wikiUrl": "string",
+          "issuesUrl": "string",
+          "sourceUrl": "string"
+        },
+        "summary": "string",
+        "status": 1,
+        "downloadCount": 0,
+        "isFeatured": true,
+        "primaryCategoryId": 0,
+        "categories": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "name": "string",
+            "slug": "string",
+            "url": "string",
+            "iconUrl": "string",
+            "dateModified": "2019-08-24T14:15:22Z",
+            "isClass": true,
+            "classId": 0,
+            "parentCategoryId": 0,
+            "displayIndex": 0
+          }
+        ],
+        "classId": 0,
+        "authors": [
+          {
+            "id": 0,
+            "name": "string",
+            "url": "string"
+          }
+        ],
+        "logo": {
+          "id": 0,
+          "modId": 0,
+          "title": "string",
+          "description": "string",
+          "thumbnailUrl": "string",
+          "url": "string"
+        },
+        "screenshots": [
+          {
+            "id": 0,
+            "modId": 0,
+            "title": "string",
+            "description": "string",
+            "thumbnailUrl": "string",
+            "url": "string"
+          }
+        ],
+        "mainFileId": 0,
+        "latestFiles": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "modId": 0,
+            "isAvailable": true,
+            "displayName": "string",
+            "fileName": "string",
+            "releaseType": 1,
+            "fileStatus": 1,
+            "hashes": [
+              {
+                "value": "string",
+                "algo": 1
+              }
+            ],
+            "fileDate": "2019-08-24T14:15:22Z",
+            "fileLength": 0,
+            "downloadCount": 0,
+            "fileSizeOnDisk": 0,
+            "downloadUrl": "string",
+            "gameVersions": [
+              "string"
+            ],
+            "sortableGameVersions": [
+              {
+                "gameVersionName": "string",
+                "gameVersionPadded": "string",
+                "gameVersion": "string",
+                "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+                "gameVersionTypeId": 0
+              }
+            ],
+            "dependencies": [
+              {
+                "modId": 0,
+                "relationType": 1
+              }
+            ],
+            "exposeAsAlternative": true,
+            "parentProjectFileId": 0,
+            "alternateFileId": 0,
+            "isServerPack": true,
+            "serverPackFileId": 0,
+            "isEarlyAccessContent": true,
+            "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+            "fileFingerprint": 0,
+            "modules": [
+              {
+                "name": "string",
+                "fingerprint": 0
+              }
+            ]
+          }
+        ],
+        "latestFilesIndexes": [
+          {
+            "gameVersion": "string",
+            "fileId": 0,
+            "filename": "string",
+            "releaseType": 1,
+            "gameVersionTypeId": 0,
+            "modLoader": 0
+          }
+        ],
+        "latestEarlyAccessFilesIndexes": [
+          {
+            "gameVersion": "string",
+            "fileId": 0,
+            "filename": "string",
+            "releaseType": 1,
+            "gameVersionTypeId": 0,
+            "modLoader": 0
+          }
+        ],
+        "dateCreated": "2019-08-24T14:15:22Z",
+        "dateModified": "2019-08-24T14:15:22Z",
+        "dateReleased": "2019-08-24T14:15:22Z",
+        "allowModDistribution": true,
+        "gamePopularityRank": 0,
+        "isAvailable": true,
+        "thumbsUpCount": 0,
+        "rating": 0
+      }
+    ],
+    "popular": [
+      {
+        "id": 0,
+        "gameId": 0,
+        "name": "string",
+        "slug": "string",
+        "links": {
+          "websiteUrl": "string",
+          "wikiUrl": "string",
+          "issuesUrl": "string",
+          "sourceUrl": "string"
+        },
+        "summary": "string",
+        "status": 1,
+        "downloadCount": 0,
+        "isFeatured": true,
+        "primaryCategoryId": 0,
+        "categories": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "name": "string",
+            "slug": "string",
+            "url": "string",
+            "iconUrl": "string",
+            "dateModified": "2019-08-24T14:15:22Z",
+            "isClass": true,
+            "classId": 0,
+            "parentCategoryId": 0,
+            "displayIndex": 0
+          }
+        ],
+        "classId": 0,
+        "authors": [
+          {
+            "id": 0,
+            "name": "string",
+            "url": "string"
+          }
+        ],
+        "logo": {
+          "id": 0,
+          "modId": 0,
+          "title": "string",
+          "description": "string",
+          "thumbnailUrl": "string",
+          "url": "string"
+        },
+        "screenshots": [
+          {
+            "id": 0,
+            "modId": 0,
+            "title": "string",
+            "description": "string",
+            "thumbnailUrl": "string",
+            "url": "string"
+          }
+        ],
+        "mainFileId": 0,
+        "latestFiles": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "modId": 0,
+            "isAvailable": true,
+            "displayName": "string",
+            "fileName": "string",
+            "releaseType": 1,
+            "fileStatus": 1,
+            "hashes": [
+              {
+                "value": "string",
+                "algo": 1
+              }
+            ],
+            "fileDate": "2019-08-24T14:15:22Z",
+            "fileLength": 0,
+            "downloadCount": 0,
+            "fileSizeOnDisk": 0,
+            "downloadUrl": "string",
+            "gameVersions": [
+              "string"
+            ],
+            "sortableGameVersions": [
+              {
+                "gameVersionName": "string",
+                "gameVersionPadded": "string",
+                "gameVersion": "string",
+                "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+                "gameVersionTypeId": 0
+              }
+            ],
+            "dependencies": [
+              {
+                "modId": 0,
+                "relationType": 1
+              }
+            ],
+            "exposeAsAlternative": true,
+            "parentProjectFileId": 0,
+            "alternateFileId": 0,
+            "isServerPack": true,
+            "serverPackFileId": 0,
+            "isEarlyAccessContent": true,
+            "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+            "fileFingerprint": 0,
+            "modules": [
+              {
+                "name": "string",
+                "fingerprint": 0
+              }
+            ]
+          }
+        ],
+        "latestFilesIndexes": [
+          {
+            "gameVersion": "string",
+            "fileId": 0,
+            "filename": "string",
+            "releaseType": 1,
+            "gameVersionTypeId": 0,
+            "modLoader": 0
+          }
+        ],
+        "latestEarlyAccessFilesIndexes": [
+          {
+            "gameVersion": "string",
+            "fileId": 0,
+            "filename": "string",
+            "releaseType": 1,
+            "gameVersionTypeId": 0,
+            "modLoader": 0
+          }
+        ],
+        "dateCreated": "2019-08-24T14:15:22Z",
+        "dateModified": "2019-08-24T14:15:22Z",
+        "dateReleased": "2019-08-24T14:15:22Z",
+        "allowModDistribution": true,
+        "gamePopularityRank": 0,
+        "isAvailable": true,
+        "thumbsUpCount": 0,
+        "rating": 0
+      }
+    ],
+    "recentlyUpdated": [
+      {
+        "id": 0,
+        "gameId": 0,
+        "name": "string",
+        "slug": "string",
+        "links": {
+          "websiteUrl": "string",
+          "wikiUrl": "string",
+          "issuesUrl": "string",
+          "sourceUrl": "string"
+        },
+        "summary": "string",
+        "status": 1,
+        "downloadCount": 0,
+        "isFeatured": true,
+        "primaryCategoryId": 0,
+        "categories": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "name": "string",
+            "slug": "string",
+            "url": "string",
+            "iconUrl": "string",
+            "dateModified": "2019-08-24T14:15:22Z",
+            "isClass": true,
+            "classId": 0,
+            "parentCategoryId": 0,
+            "displayIndex": 0
+          }
+        ],
+        "classId": 0,
+        "authors": [
+          {
+            "id": 0,
+            "name": "string",
+            "url": "string"
+          }
+        ],
+        "logo": {
+          "id": 0,
+          "modId": 0,
+          "title": "string",
+          "description": "string",
+          "thumbnailUrl": "string",
+          "url": "string"
+        },
+        "screenshots": [
+          {
+            "id": 0,
+            "modId": 0,
+            "title": "string",
+            "description": "string",
+            "thumbnailUrl": "string",
+            "url": "string"
+          }
+        ],
+        "mainFileId": 0,
+        "latestFiles": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "modId": 0,
+            "isAvailable": true,
+            "displayName": "string",
+            "fileName": "string",
+            "releaseType": 1,
+            "fileStatus": 1,
+            "hashes": [
+              {
+                "value": "string",
+                "algo": 1
+              }
+            ],
+            "fileDate": "2019-08-24T14:15:22Z",
+            "fileLength": 0,
+            "downloadCount": 0,
+            "fileSizeOnDisk": 0,
+            "downloadUrl": "string",
+            "gameVersions": [
+              "string"
+            ],
+            "sortableGameVersions": [
+              {
+                "gameVersionName": "string",
+                "gameVersionPadded": "string",
+                "gameVersion": "string",
+                "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+                "gameVersionTypeId": 0
+              }
+            ],
+            "dependencies": [
+              {
+                "modId": 0,
+                "relationType": 1
+              }
+            ],
+            "exposeAsAlternative": true,
+            "parentProjectFileId": 0,
+            "alternateFileId": 0,
+            "isServerPack": true,
+            "serverPackFileId": 0,
+            "isEarlyAccessContent": true,
+            "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+            "fileFingerprint": 0,
+            "modules": [
+              {
+                "name": "string",
+                "fingerprint": 0
+              }
+            ]
+          }
+        ],
+        "latestFilesIndexes": [
+          {
+            "gameVersion": "string",
+            "fileId": 0,
+            "filename": "string",
+            "releaseType": 1,
+            "gameVersionTypeId": 0,
+            "modLoader": 0
+          }
+        ],
+        "latestEarlyAccessFilesIndexes": [
+          {
+            "gameVersion": "string",
+            "fileId": 0,
+            "filename": "string",
+            "releaseType": 1,
+            "gameVersionTypeId": 0,
+            "modLoader": 0
+          }
+        ],
+        "dateCreated": "2019-08-24T14:15:22Z",
+        "dateModified": "2019-08-24T14:15:22Z",
+        "dateReleased": "2019-08-24T14:15:22Z",
+        "allowModDistribution": true,
+        "gamePopularityRank": 0,
+        "isAvailable": true,
+        "thumbsUpCount": 0,
+        "rating": 0
+      }
+    ]
+  }
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Featured Mods Response
+400	Bad Request	none	None
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Mod Description
+
+Code samples
+
+GET /v1/mods/{modId}/description HTTP/1.1
+
+Accept: application/json
+
+GET /v1/mods/{modId}/description
+
+Get the full description of a mod in HTML format.
+
+Parameters
+Name	In	Type	Required	Description
+modId	path	integer(int32)	true	The mod id
+raw	query	boolean	false	none
+stripped	query	boolean	false	none
+markup	query	boolean	false	none
+Example responses
+
+200 Response
+
+{
+  "data": "string"
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	String Response
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY

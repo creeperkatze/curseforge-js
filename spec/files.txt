@@ -1,0 +1,336 @@
+Files
+Get Mod File
+
+Code samples
+
+GET /v1/mods/{modId}/files/{fileId} HTTP/1.1
+
+Accept: application/json
+
+GET /v1/mods/{modId}/files/{fileId}
+
+Get a single file of the specified mod.
+
+Parameters
+Name	In	Type	Required	Description
+modId	path	integer(int32)	true	The mod id the file belongs to
+fileId	path	integer(int32)	true	The file id
+Example responses
+
+200 Response
+
+{
+  "data": {
+    "id": 0,
+    "gameId": 0,
+    "modId": 0,
+    "isAvailable": true,
+    "displayName": "string",
+    "fileName": "string",
+    "releaseType": 1,
+    "fileStatus": 1,
+    "hashes": [
+      {
+        "value": "string",
+        "algo": 1
+      }
+    ],
+    "fileDate": "2019-08-24T14:15:22Z",
+    "fileLength": 0,
+    "downloadCount": 0,
+    "fileSizeOnDisk": 0,
+    "downloadUrl": "string",
+    "gameVersions": [
+      "string"
+    ],
+    "sortableGameVersions": [
+      {
+        "gameVersionName": "string",
+        "gameVersionPadded": "string",
+        "gameVersion": "string",
+        "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+        "gameVersionTypeId": 0
+      }
+    ],
+    "dependencies": [
+      {
+        "modId": 0,
+        "relationType": 1
+      }
+    ],
+    "exposeAsAlternative": true,
+    "parentProjectFileId": 0,
+    "alternateFileId": 0,
+    "isServerPack": true,
+    "serverPackFileId": 0,
+    "isEarlyAccessContent": true,
+    "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+    "fileFingerprint": 0,
+    "modules": [
+      {
+        "name": "string",
+        "fingerprint": 0
+      }
+    ]
+  }
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Mod File Response
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Mod Files
+
+Code samples
+
+GET /v1/mods/{modId}/files HTTP/1.1
+
+Accept: application/json
+
+GET /v1/mods/{modId}/files
+
+Get all files of the specified mod.
+
+Parameters
+Name	In	Type	Required	Description
+modId	path	integer(int32)	true	The mod id the files belong to
+gameVersion	query	string	false	Filter by game version string
+modLoaderType	query	ModLoaderType	false	ModLoaderType enumeration
+gameVersionTypeId	query	integer(int32)	false	Filter only files that are tagged with versions of the given gameVersionTypeId
+index	query	integer(int32)	false	A zero based index of the first item to include in the response, the limit is: (index + pageSize <= 10,000).
+pageSize	query	integer(int32)	false	The number of items to include in the response, the default/maximum value is 50.
+Detailed descriptions
+modLoaderType: ModLoaderType enumeration Filter only files associated to a given modloader (Forge, Fabric ...).
+
+Enumerated Values
+Parameter	Value
+modLoaderType	0
+modLoaderType	1
+modLoaderType	2
+modLoaderType	3
+modLoaderType	4
+modLoaderType	5
+modLoaderType	6
+Example responses
+
+200 Response
+
+{
+  "data": [
+    {
+      "id": 0,
+      "gameId": 0,
+      "modId": 0,
+      "isAvailable": true,
+      "displayName": "string",
+      "fileName": "string",
+      "releaseType": 1,
+      "fileStatus": 1,
+      "hashes": [
+        {
+          "value": "string",
+          "algo": 1
+        }
+      ],
+      "fileDate": "2019-08-24T14:15:22Z",
+      "fileLength": 0,
+      "downloadCount": 0,
+      "fileSizeOnDisk": 0,
+      "downloadUrl": "string",
+      "gameVersions": [
+        "string"
+      ],
+      "sortableGameVersions": [
+        {
+          "gameVersionName": "string",
+          "gameVersionPadded": "string",
+          "gameVersion": "string",
+          "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+          "gameVersionTypeId": 0
+        }
+      ],
+      "dependencies": [
+        {
+          "modId": 0,
+          "relationType": 1
+        }
+      ],
+      "exposeAsAlternative": true,
+      "parentProjectFileId": 0,
+      "alternateFileId": 0,
+      "isServerPack": true,
+      "serverPackFileId": 0,
+      "isEarlyAccessContent": true,
+      "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+      "fileFingerprint": 0,
+      "modules": [
+        {
+          "name": "string",
+          "fingerprint": 0
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "index": 0,
+    "pageSize": 0,
+    "resultCount": 0,
+    "totalCount": 0
+  }
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Mod Files Response
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Files
+
+Code samples
+
+POST /v1/mods/files HTTP/1.1
+
+Content-Type: application/json
+Accept: application/json
+
+POST /v1/mods/files
+
+Get a list of files.
+
+Body parameter
+
+{
+  "fileIds": [
+    0
+  ]
+}
+Parameters
+Name	In	Type	Required	Description
+body	body	GetModFilesRequestBody	true	Request body containing a list of file ids to fetch
+Example responses
+
+200 Response
+
+{
+  "data": [
+    {
+      "id": 0,
+      "gameId": 0,
+      "modId": 0,
+      "isAvailable": true,
+      "displayName": "string",
+      "fileName": "string",
+      "releaseType": 1,
+      "fileStatus": 1,
+      "hashes": [
+        {
+          "value": "string",
+          "algo": 1
+        }
+      ],
+      "fileDate": "2019-08-24T14:15:22Z",
+      "fileLength": 0,
+      "downloadCount": 0,
+      "fileSizeOnDisk": 0,
+      "downloadUrl": "string",
+      "gameVersions": [
+        "string"
+      ],
+      "sortableGameVersions": [
+        {
+          "gameVersionName": "string",
+          "gameVersionPadded": "string",
+          "gameVersion": "string",
+          "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+          "gameVersionTypeId": 0
+        }
+      ],
+      "dependencies": [
+        {
+          "modId": 0,
+          "relationType": 1
+        }
+      ],
+      "exposeAsAlternative": true,
+      "parentProjectFileId": 0,
+      "alternateFileId": 0,
+      "isServerPack": true,
+      "serverPackFileId": 0,
+      "isEarlyAccessContent": true,
+      "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+      "fileFingerprint": 0,
+      "modules": [
+        {
+          "name": "string",
+          "fingerprint": 0
+        }
+      ]
+    }
+  ]
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Files Response
+400	Bad Request	none	None
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Mod File Changelog
+
+Code samples
+
+GET /v1/mods/{modId}/files/{fileId}/changelog HTTP/1.1
+
+Accept: application/json
+
+GET /v1/mods/{modId}/files/{fileId}/changelog
+
+Get the changelog of a file in HTML format.
+
+Parameters
+Name	In	Type	Required	Description
+modId	path	integer(int32)	true	The mod id the file belongs to
+fileId	path	integer(int32)	true	The file id
+Example responses
+
+200 Response
+
+{
+  "data": "string"
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	String Response
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Mod File Download URL
+
+Code samples
+
+GET /v1/mods/{modId}/files/{fileId}/download-url HTTP/1.1
+
+Accept: application/json
+
+GET /v1/mods/{modId}/files/{fileId}/download-url
+
+Get a download url for a specific file.
+
+Parameters
+Name	In	Type	Required	Description
+modId	path	integer(int32)	true	The mod id the file belongs to
+fileId	path	integer(int32)	true	The file id
+Example responses
+
+200 Response
+
+{
+  "data": "string"
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	String Response
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY

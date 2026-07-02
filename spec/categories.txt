@@ -1,0 +1,46 @@
+Categories
+Get Categories
+
+Code samples
+
+GET /v1/categories?gameId=0 HTTP/1.1
+
+Accept: application/json
+
+GET /v1/categories
+
+Get all available classes and categories of the specified game. Specify a game id for a list of all game categories, or a class id for a list of categories under that class. specifiy the classes Only flag to just get the classes for a given game.
+
+Parameters
+Name	In	Type	Required	Description
+gameId	query	integer(int32)	true	A game unique id
+classId	query	integer(int32)	false	A class unique id
+classesOnly	query	boolean	false	A flag used with gameId to return only classes
+Example responses
+
+200 Response
+
+{
+  "data": [
+    {
+      "id": 0,
+      "gameId": 0,
+      "name": "string",
+      "slug": "string",
+      "url": "string",
+      "iconUrl": "string",
+      "dateModified": "2019-08-24T14:15:22Z",
+      "isClass": true,
+      "classId": 0,
+      "parentCategoryId": 0,
+      "displayIndex": 0
+    }
+  ]
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Categories Response
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Mods

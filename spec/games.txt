@@ -1,0 +1,212 @@
+Accessing the service
+Base URL
+All endpoints use the same base URL - https://api.curseforge.com
+
+Pagination Limits
+The maximum page size is 50 results per page and capped at 10000 total results.
+Note: The limit is (index + pageSize <= 10,000).
+
+Notes
+Unless stated otherwise all int32 responses are unsigned.
+Authentication
+API Key (API_KEY)
+Parameter Name: x-api-key, in: header.
+The API key can be generated in the CurseForge for Studios developer console.
+Games
+Get Games
+
+Code samples
+
+GET /v1/games HTTP/1.1
+
+Accept: application/json
+
+GET /v1/games
+
+Get all games that are available to the provided API key.
+
+Parameters
+Name	In	Type	Required	Description
+index	query	integer(int32)	false	A zero based index of the first item to include in the response, the limit is: (index + pageSize <= 10,000).
+pageSize	query	integer(int32)	false	The number of items to include in the response, the default/maximum value is 50.
+Example responses
+
+200 Response
+
+{
+  "data": [
+    {
+      "id": 0,
+      "name": "string",
+      "slug": "string",
+      "dateModified": "2019-08-24T14:15:22Z",
+      "assets": {
+        "iconUrl": "string",
+        "tileUrl": "string",
+        "coverUrl": "string"
+      },
+      "status": 1,
+      "apiStatus": 1
+    }
+  ],
+  "pagination": {
+    "index": 0,
+    "pageSize": 0,
+    "resultCount": 0,
+    "totalCount": 0
+  }
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Games Response
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Game
+
+Code samples
+
+GET /v1/games/{gameId} HTTP/1.1
+
+Accept: application/json
+
+GET /v1/games/{gameId}
+
+Get a single game. A private game is only accessible by its respective API key.
+
+Parameters
+Name	In	Type	Required	Description
+gameId	path	integer(int32)	true	A game unique id
+Example responses
+
+200 Response
+
+{
+  "data": {
+    "id": 0,
+    "name": "string",
+    "slug": "string",
+    "dateModified": "2019-08-24T14:15:22Z",
+    "assets": {
+      "iconUrl": "string",
+      "tileUrl": "string",
+      "coverUrl": "string"
+    },
+    "status": 1,
+    "apiStatus": 1
+  }
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Game Response
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Versions
+
+Code samples
+
+GET /v1/games/{gameId}/versions HTTP/1.1
+
+Accept: application/json
+
+GET /v1/games/{gameId}/versions
+
+Get all available versions for each known version type of the specified game. A private game is only accessible to its respective API key.
+
+Parameters
+Name	In	Type	Required	Description
+gameId	path	integer(int32)	true	A game unique id
+Example responses
+
+200 Response
+
+{
+  "data": [
+    {
+      "type": 0,
+      "versions": [
+        "string"
+      ]
+    }
+  ]
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Versions Response - V1
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Version Types
+
+Code samples
+
+GET /v1/games/{gameId}/version-types HTTP/1.1
+
+Accept: application/json
+
+GET /v1/games/{gameId}/version-types
+
+Get all available version types of the specified game.
+
+A private game is only accessible to its respective API key.
+
+Currently, when creating games via the CurseForge for Studios Console, you are limited to a single game version type. This means that this endpoint is probably not useful in most cases and is relevant mostly when handling existing games that have multiple game versions such as World of Warcraft and Minecraft (e.g. 517 for wow_retail).
+
+Parameters
+Name	In	Type	Required	Description
+gameId	path	integer(int32)	true	A game unique id
+Example responses
+
+200 Response
+
+{
+  "data": [
+    {
+      "id": 0,
+      "gameId": 0,
+      "name": "string",
+      "slug": "string",
+      "isSyncable": true,
+      "status": 1
+    }
+  ]
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Version Types Response
+404	Not Found	none	None
+500	Internal Server Error	none	None
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Versions - V2
+
+Code samples
+
+GET /v2/games/{gameId}/versions HTTP/1.1
+
+Accept: application/json
+
+GET /v2/games/{gameId}/versions
+
+Get all available versions for each known version type of the specified game. A private game is only accessible to its respective API key.
+
+Parameters
+Name	In	Type	Required	Description
+gameId	path	integer(int32)	true	A game unique id
+Example responses
+
+200 Response
+
+{
+  "data": [
+    {
+      "type": 0,
+      "versions": [
+        {
+          "id": 0,
+          "slug": "string",
+          "name": "string"
+        }
+      ]
+    }
+  ]
+}

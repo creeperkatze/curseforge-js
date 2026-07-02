@@ -1,0 +1,877 @@
+Fingerprints
+Get Fingerprints Matches By Game Id
+
+Code samples
+
+POST /v1/fingerprints/{gameId} HTTP/1.1
+
+Content-Type: application/json
+Accept: application/json
+
+POST /v1/fingerprints/{gameId}
+
+Get mod files that match a list of fingerprints for a given game id.
+
+Body parameter
+
+{
+  "fingerprints": [
+    0
+  ]
+}
+Parameters
+Name	In	Type	Required	Description
+gameId	path	integer(int32)	true	The game id for matching fingerprints
+body	body	GetFingerprintMatchesRequestBody	true	The request body containing an array of fingerprints
+Example responses
+
+200 Response
+
+{
+  "data": {
+    "isCacheBuilt": true,
+    "exactMatches": [
+      {
+        "id": 0,
+        "file": {
+          "id": 0,
+          "gameId": 0,
+          "modId": 0,
+          "isAvailable": true,
+          "displayName": "string",
+          "fileName": "string",
+          "releaseType": 1,
+          "fileStatus": 1,
+          "hashes": [
+            {
+              "value": "string",
+              "algo": 1
+            }
+          ],
+          "fileDate": "2019-08-24T14:15:22Z",
+          "fileLength": 0,
+          "downloadCount": 0,
+          "fileSizeOnDisk": 0,
+          "downloadUrl": "string",
+          "gameVersions": [
+            "string"
+          ],
+          "sortableGameVersions": [
+            {
+              "gameVersionName": "string",
+              "gameVersionPadded": "string",
+              "gameVersion": "string",
+              "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+              "gameVersionTypeId": 0
+            }
+          ],
+          "dependencies": [
+            {
+              "modId": 0,
+              "relationType": 1
+            }
+          ],
+          "exposeAsAlternative": true,
+          "parentProjectFileId": 0,
+          "alternateFileId": 0,
+          "isServerPack": true,
+          "serverPackFileId": 0,
+          "isEarlyAccessContent": true,
+          "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+          "fileFingerprint": 0,
+          "modules": [
+            {
+              "name": "string",
+              "fingerprint": 0
+            }
+          ]
+        },
+        "latestFiles": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "modId": 0,
+            "isAvailable": true,
+            "displayName": "string",
+            "fileName": "string",
+            "releaseType": 1,
+            "fileStatus": 1,
+            "hashes": [
+              {
+                "value": "string",
+                "algo": 1
+              }
+            ],
+            "fileDate": "2019-08-24T14:15:22Z",
+            "fileLength": 0,
+            "downloadCount": 0,
+            "fileSizeOnDisk": 0,
+            "downloadUrl": "string",
+            "gameVersions": [
+              "string"
+            ],
+            "sortableGameVersions": [
+              {
+                "gameVersionName": "string",
+                "gameVersionPadded": "string",
+                "gameVersion": "string",
+                "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+                "gameVersionTypeId": 0
+              }
+            ],
+            "dependencies": [
+              {
+                "modId": 0,
+                "relationType": 1
+              }
+            ],
+            "exposeAsAlternative": true,
+            "parentProjectFileId": 0,
+            "alternateFileId": 0,
+            "isServerPack": true,
+            "serverPackFileId": 0,
+            "isEarlyAccessContent": true,
+            "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+            "fileFingerprint": 0,
+            "modules": [
+              {
+                "name": "string",
+                "fingerprint": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exactFingerprints": [
+      0
+    ],
+    "partialMatches": [
+      {
+        "id": 0,
+        "file": {
+          "id": 0,
+          "gameId": 0,
+          "modId": 0,
+          "isAvailable": true,
+          "displayName": "string",
+          "fileName": "string",
+          "releaseType": 1,
+          "fileStatus": 1,
+          "hashes": [
+            {
+              "value": "string",
+              "algo": 1
+            }
+          ],
+          "fileDate": "2019-08-24T14:15:22Z",
+          "fileLength": 0,
+          "downloadCount": 0,
+          "fileSizeOnDisk": 0,
+          "downloadUrl": "string",
+          "gameVersions": [
+            "string"
+          ],
+          "sortableGameVersions": [
+            {
+              "gameVersionName": "string",
+              "gameVersionPadded": "string",
+              "gameVersion": "string",
+              "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+              "gameVersionTypeId": 0
+            }
+          ],
+          "dependencies": [
+            {
+              "modId": 0,
+              "relationType": 1
+            }
+          ],
+          "exposeAsAlternative": true,
+          "parentProjectFileId": 0,
+          "alternateFileId": 0,
+          "isServerPack": true,
+          "serverPackFileId": 0,
+          "isEarlyAccessContent": true,
+          "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+          "fileFingerprint": 0,
+          "modules": [
+            {
+              "name": "string",
+              "fingerprint": 0
+            }
+          ]
+        },
+        "latestFiles": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "modId": 0,
+            "isAvailable": true,
+            "displayName": "string",
+            "fileName": "string",
+            "releaseType": 1,
+            "fileStatus": 1,
+            "hashes": [
+              {
+                "value": "string",
+                "algo": 1
+              }
+            ],
+            "fileDate": "2019-08-24T14:15:22Z",
+            "fileLength": 0,
+            "downloadCount": 0,
+            "fileSizeOnDisk": 0,
+            "downloadUrl": "string",
+            "gameVersions": [
+              "string"
+            ],
+            "sortableGameVersions": [
+              {
+                "gameVersionName": "string",
+                "gameVersionPadded": "string",
+                "gameVersion": "string",
+                "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+                "gameVersionTypeId": 0
+              }
+            ],
+            "dependencies": [
+              {
+                "modId": 0,
+                "relationType": 1
+              }
+            ],
+            "exposeAsAlternative": true,
+            "parentProjectFileId": 0,
+            "alternateFileId": 0,
+            "isServerPack": true,
+            "serverPackFileId": 0,
+            "isEarlyAccessContent": true,
+            "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+            "fileFingerprint": 0,
+            "modules": [
+              {
+                "name": "string",
+                "fingerprint": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "partialMatchFingerprints": {
+      "property1": [
+        0
+      ],
+      "property2": [
+        0
+      ]
+    },
+    "installedFingerprints": [
+      0
+    ],
+    "unmatchedFingerprints": [
+      0
+    ]
+  }
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Fingerprint Matches Response
+400	Bad Request	none	None
+503	Service Unavailable	none	string
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Fingerprints Matches
+
+Code samples
+
+POST /v1/fingerprints HTTP/1.1
+
+Content-Type: application/json
+Accept: application/json
+
+POST /v1/fingerprints
+
+Get mod files that match a list of fingerprints.
+
+Body parameter
+
+{
+  "fingerprints": [
+    0
+  ]
+}
+Parameters
+Name	In	Type	Required	Description
+body	body	GetFingerprintMatchesRequestBody	true	The request body containing an array of fingerprints
+Example responses
+
+200 Response
+
+{
+  "data": {
+    "isCacheBuilt": true,
+    "exactMatches": [
+      {
+        "id": 0,
+        "file": {
+          "id": 0,
+          "gameId": 0,
+          "modId": 0,
+          "isAvailable": true,
+          "displayName": "string",
+          "fileName": "string",
+          "releaseType": 1,
+          "fileStatus": 1,
+          "hashes": [
+            {
+              "value": "string",
+              "algo": 1
+            }
+          ],
+          "fileDate": "2019-08-24T14:15:22Z",
+          "fileLength": 0,
+          "downloadCount": 0,
+          "fileSizeOnDisk": 0,
+          "downloadUrl": "string",
+          "gameVersions": [
+            "string"
+          ],
+          "sortableGameVersions": [
+            {
+              "gameVersionName": "string",
+              "gameVersionPadded": "string",
+              "gameVersion": "string",
+              "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+              "gameVersionTypeId": 0
+            }
+          ],
+          "dependencies": [
+            {
+              "modId": 0,
+              "relationType": 1
+            }
+          ],
+          "exposeAsAlternative": true,
+          "parentProjectFileId": 0,
+          "alternateFileId": 0,
+          "isServerPack": true,
+          "serverPackFileId": 0,
+          "isEarlyAccessContent": true,
+          "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+          "fileFingerprint": 0,
+          "modules": [
+            {
+              "name": "string",
+              "fingerprint": 0
+            }
+          ]
+        },
+        "latestFiles": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "modId": 0,
+            "isAvailable": true,
+            "displayName": "string",
+            "fileName": "string",
+            "releaseType": 1,
+            "fileStatus": 1,
+            "hashes": [
+              {
+                "value": "string",
+                "algo": 1
+              }
+            ],
+            "fileDate": "2019-08-24T14:15:22Z",
+            "fileLength": 0,
+            "downloadCount": 0,
+            "fileSizeOnDisk": 0,
+            "downloadUrl": "string",
+            "gameVersions": [
+              "string"
+            ],
+            "sortableGameVersions": [
+              {
+                "gameVersionName": "string",
+                "gameVersionPadded": "string",
+                "gameVersion": "string",
+                "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+                "gameVersionTypeId": 0
+              }
+            ],
+            "dependencies": [
+              {
+                "modId": 0,
+                "relationType": 1
+              }
+            ],
+            "exposeAsAlternative": true,
+            "parentProjectFileId": 0,
+            "alternateFileId": 0,
+            "isServerPack": true,
+            "serverPackFileId": 0,
+            "isEarlyAccessContent": true,
+            "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+            "fileFingerprint": 0,
+            "modules": [
+              {
+                "name": "string",
+                "fingerprint": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "exactFingerprints": [
+      0
+    ],
+    "partialMatches": [
+      {
+        "id": 0,
+        "file": {
+          "id": 0,
+          "gameId": 0,
+          "modId": 0,
+          "isAvailable": true,
+          "displayName": "string",
+          "fileName": "string",
+          "releaseType": 1,
+          "fileStatus": 1,
+          "hashes": [
+            {
+              "value": "string",
+              "algo": 1
+            }
+          ],
+          "fileDate": "2019-08-24T14:15:22Z",
+          "fileLength": 0,
+          "downloadCount": 0,
+          "fileSizeOnDisk": 0,
+          "downloadUrl": "string",
+          "gameVersions": [
+            "string"
+          ],
+          "sortableGameVersions": [
+            {
+              "gameVersionName": "string",
+              "gameVersionPadded": "string",
+              "gameVersion": "string",
+              "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+              "gameVersionTypeId": 0
+            }
+          ],
+          "dependencies": [
+            {
+              "modId": 0,
+              "relationType": 1
+            }
+          ],
+          "exposeAsAlternative": true,
+          "parentProjectFileId": 0,
+          "alternateFileId": 0,
+          "isServerPack": true,
+          "serverPackFileId": 0,
+          "isEarlyAccessContent": true,
+          "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+          "fileFingerprint": 0,
+          "modules": [
+            {
+              "name": "string",
+              "fingerprint": 0
+            }
+          ]
+        },
+        "latestFiles": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "modId": 0,
+            "isAvailable": true,
+            "displayName": "string",
+            "fileName": "string",
+            "releaseType": 1,
+            "fileStatus": 1,
+            "hashes": [
+              {
+                "value": "string",
+                "algo": 1
+              }
+            ],
+            "fileDate": "2019-08-24T14:15:22Z",
+            "fileLength": 0,
+            "downloadCount": 0,
+            "fileSizeOnDisk": 0,
+            "downloadUrl": "string",
+            "gameVersions": [
+              "string"
+            ],
+            "sortableGameVersions": [
+              {
+                "gameVersionName": "string",
+                "gameVersionPadded": "string",
+                "gameVersion": "string",
+                "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+                "gameVersionTypeId": 0
+              }
+            ],
+            "dependencies": [
+              {
+                "modId": 0,
+                "relationType": 1
+              }
+            ],
+            "exposeAsAlternative": true,
+            "parentProjectFileId": 0,
+            "alternateFileId": 0,
+            "isServerPack": true,
+            "serverPackFileId": 0,
+            "isEarlyAccessContent": true,
+            "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+            "fileFingerprint": 0,
+            "modules": [
+              {
+                "name": "string",
+                "fingerprint": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "partialMatchFingerprints": {
+      "property1": [
+        0
+      ],
+      "property2": [
+        0
+      ]
+    },
+    "installedFingerprints": [
+      0
+    ],
+    "unmatchedFingerprints": [
+      0
+    ]
+  }
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Fingerprint Matches Response
+400	Bad Request	none	None
+503	Service Unavailable	none	string
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Fingerprints Fuzzy Matches By Game Id
+
+Code samples
+
+POST /v1/fingerprints/fuzzy/{gameId} HTTP/1.1
+
+Content-Type: application/json
+Accept: application/json
+
+POST /v1/fingerprints/fuzzy/{gameId}
+
+Get mod files that match a list of fingerprints using fuzzy matching.
+
+Body parameter
+
+{
+  "gameId": 0,
+  "fingerprints": [
+    {
+      "foldername": "string",
+      "fingerprints": [
+        0
+      ]
+    }
+  ]
+}
+Parameters
+Name	In	Type	Required	Description
+gameId	path	integer(int32)	true	The game id for matching fingerprints
+body	body	GetFuzzyMatchesRequestBody	true	Game id and folder fingerprints options for the fuzzy matching
+Example responses
+
+200 Response
+
+{
+  "data": {
+    "fuzzyMatches": [
+      {
+        "id": 0,
+        "file": {
+          "id": 0,
+          "gameId": 0,
+          "modId": 0,
+          "isAvailable": true,
+          "displayName": "string",
+          "fileName": "string",
+          "releaseType": 1,
+          "fileStatus": 1,
+          "hashes": [
+            {
+              "value": "string",
+              "algo": 1
+            }
+          ],
+          "fileDate": "2019-08-24T14:15:22Z",
+          "fileLength": 0,
+          "downloadCount": 0,
+          "fileSizeOnDisk": 0,
+          "downloadUrl": "string",
+          "gameVersions": [
+            "string"
+          ],
+          "sortableGameVersions": [
+            {
+              "gameVersionName": "string",
+              "gameVersionPadded": "string",
+              "gameVersion": "string",
+              "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+              "gameVersionTypeId": 0
+            }
+          ],
+          "dependencies": [
+            {
+              "modId": 0,
+              "relationType": 1
+            }
+          ],
+          "exposeAsAlternative": true,
+          "parentProjectFileId": 0,
+          "alternateFileId": 0,
+          "isServerPack": true,
+          "serverPackFileId": 0,
+          "isEarlyAccessContent": true,
+          "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+          "fileFingerprint": 0,
+          "modules": [
+            {
+              "name": "string",
+              "fingerprint": 0
+            }
+          ]
+        },
+        "latestFiles": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "modId": 0,
+            "isAvailable": true,
+            "displayName": "string",
+            "fileName": "string",
+            "releaseType": 1,
+            "fileStatus": 1,
+            "hashes": [
+              {
+                "value": "string",
+                "algo": 1
+              }
+            ],
+            "fileDate": "2019-08-24T14:15:22Z",
+            "fileLength": 0,
+            "downloadCount": 0,
+            "fileSizeOnDisk": 0,
+            "downloadUrl": "string",
+            "gameVersions": [
+              "string"
+            ],
+            "sortableGameVersions": [
+              {
+                "gameVersionName": "string",
+                "gameVersionPadded": "string",
+                "gameVersion": "string",
+                "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+                "gameVersionTypeId": 0
+              }
+            ],
+            "dependencies": [
+              {
+                "modId": 0,
+                "relationType": 1
+              }
+            ],
+            "exposeAsAlternative": true,
+            "parentProjectFileId": 0,
+            "alternateFileId": 0,
+            "isServerPack": true,
+            "serverPackFileId": 0,
+            "isEarlyAccessContent": true,
+            "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+            "fileFingerprint": 0,
+            "modules": [
+              {
+                "name": "string",
+                "fingerprint": 0
+              }
+            ]
+          }
+        ],
+        "fingerprints": [
+          0
+        ]
+      }
+    ]
+  }
+}
+Responses
+Status	Meaning	Description	Schema
+200	OK	none	Get Fingerprints Fuzzy Matches Response
+400	Bad Request	none	None
+503	Service Unavailable	none	string
+To perform this operation, you must be authenticated by means of one of the following methods: API_KEY
+Get Fingerprints Fuzzy Matches
+
+Code samples
+
+POST /v1/fingerprints/fuzzy HTTP/1.1
+
+Content-Type: application/json
+Accept: application/json
+
+POST /v1/fingerprints/fuzzy
+
+Get mod files that match a list of fingerprints using fuzzy matching.
+
+Body parameter
+
+{
+  "gameId": 0,
+  "fingerprints": [
+    {
+      "foldername": "string",
+      "fingerprints": [
+        0
+      ]
+    }
+  ]
+}
+Parameters
+Name	In	Type	Required	Description
+body	body	GetFuzzyMatchesRequestBody	true	Game id and folder fingerprints options for the fuzzy matching
+Example responses
+
+200 Response
+
+{
+  "data": {
+    "fuzzyMatches": [
+      {
+        "id": 0,
+        "file": {
+          "id": 0,
+          "gameId": 0,
+          "modId": 0,
+          "isAvailable": true,
+          "displayName": "string",
+          "fileName": "string",
+          "releaseType": 1,
+          "fileStatus": 1,
+          "hashes": [
+            {
+              "value": "string",
+              "algo": 1
+            }
+          ],
+          "fileDate": "2019-08-24T14:15:22Z",
+          "fileLength": 0,
+          "downloadCount": 0,
+          "fileSizeOnDisk": 0,
+          "downloadUrl": "string",
+          "gameVersions": [
+            "string"
+          ],
+          "sortableGameVersions": [
+            {
+              "gameVersionName": "string",
+              "gameVersionPadded": "string",
+              "gameVersion": "string",
+              "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+              "gameVersionTypeId": 0
+            }
+          ],
+          "dependencies": [
+            {
+              "modId": 0,
+              "relationType": 1
+            }
+          ],
+          "exposeAsAlternative": true,
+          "parentProjectFileId": 0,
+          "alternateFileId": 0,
+          "isServerPack": true,
+          "serverPackFileId": 0,
+          "isEarlyAccessContent": true,
+          "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+          "fileFingerprint": 0,
+          "modules": [
+            {
+              "name": "string",
+              "fingerprint": 0
+            }
+          ]
+        },
+        "latestFiles": [
+          {
+            "id": 0,
+            "gameId": 0,
+            "modId": 0,
+            "isAvailable": true,
+            "displayName": "string",
+            "fileName": "string",
+            "releaseType": 1,
+            "fileStatus": 1,
+            "hashes": [
+              {
+                "value": "string",
+                "algo": 1
+              }
+            ],
+            "fileDate": "2019-08-24T14:15:22Z",
+            "fileLength": 0,
+            "downloadCount": 0,
+            "fileSizeOnDisk": 0,
+            "downloadUrl": "string",
+            "gameVersions": [
+              "string"
+            ],
+            "sortableGameVersions": [
+              {
+                "gameVersionName": "string",
+                "gameVersionPadded": "string",
+                "gameVersion": "string",
+                "gameVersionReleaseDate": "2019-08-24T14:15:22Z",
+                "gameVersionTypeId": 0
+              }
+            ],
+            "dependencies": [
+              {
+                "modId": 0,
+                "relationType": 1
+              }
+            ],
+            "exposeAsAlternative": true,
+            "parentProjectFileId": 0,
+            "alternateFileId": 0,
+            "isServerPack": true,
+            "serverPackFileId": 0,
+            "isEarlyAccessContent": true,
+            "earlyAccessEndDate": "2019-08-24T14:15:22Z",
+            "fileFingerprint": 0,
+            "modules": [
+              {
+                "name": "string",
+                "fingerprint": 0
+              }
+            ]
+          }
+        ],
+        "fingerprints": [
+          0
+        ]
+      }
+    ]
+  }
+}
