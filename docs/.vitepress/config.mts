@@ -83,6 +83,7 @@ const guideSidebar = [
       { text: "Mods", link: "/guide/mods" },
       { text: "Files", link: "/guide/files" },
       { text: "Fingerprints", link: "/guide/fingerprints" },
+      { text: "Users", link: "/guide/users" },
     ],
   },
 ];

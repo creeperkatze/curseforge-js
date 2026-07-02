@@ -5,4 +5,5 @@ export { FingerprintsApi } from './fingerprints.js';
 export { GamesApi } from './games.js';
 export { MinecraftApi } from './minecraft.js';
 export { ModsApi } from './mods.js';
+export { UsersApi } from './users.js';
 export { CurseForgeClient } from './curseforge.js';

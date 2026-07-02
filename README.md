@@ -99,6 +99,9 @@ Fingerprints:
 - `client.fingerprints.getMatches(fingerprints, gameId?)`
 - `client.fingerprints.getFuzzyMatches(fingerprints, gameId?)`
 
+Users:
+- `client.users.get(userId)`
+
 ## 🔐 Authentication
 
 Get an API key from [console.curseforge.com](https://console.curseforge.com/), then pass it at client creation time. It is sent as the `x-api-key` header on every request.

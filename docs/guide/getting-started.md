@@ -65,4 +65,5 @@ const client = new CurseForgeClient({
 - See [Error Handling](/guide/error-handling) for catching and inspecting errors
 - See [Games & Categories](/guide/games) for browsing games and mod categories
 - See [Mods](/guide/mods) for searching and fetching mods
+- See [Users](/guide/users) for fetching user profiles
 - See [API Reference](/api/) for the generated public API docs

@@ -5,6 +5,7 @@ import { FingerprintsApi } from './fingerprints.js';
 import { GamesApi } from './games.js';
 import { MinecraftApi } from './minecraft.js';
 import { ModsApi } from './mods.js';
+import { UsersApi } from './users.js';
 import type { CurseForgeClientOptions } from '../types/base.js';
 
 /**
@@ -25,6 +26,7 @@ export class CurseForgeClient {
   readonly games: GamesApi;
   readonly minecraft: MinecraftApi;
   readonly mods: ModsApi;
+  readonly users: UsersApi;
 
   constructor(options: CurseForgeClientOptions = {}) {
     this.#core = new CurseForgeClientCore(options);
@@ -35,5 +37,6 @@ export class CurseForgeClient {
     this.games = new GamesApi(this.#core);
     this.minecraft = new MinecraftApi(this.#core);
     this.mods = new ModsApi(this.#core);
+    this.users = new UsersApi(this.#core);
   }
 }

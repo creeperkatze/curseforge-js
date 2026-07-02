@@ -5,3 +5,4 @@ export * from './fingerprints.js';
 export * from './games.js';
 export * from './minecraft.js';
 export * from './mods.js';
+export * from './users.js';
