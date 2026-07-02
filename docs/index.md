@@ -15,7 +15,7 @@ hero:
       text: GitHub
       link: https://github.com/creeperkatze/curseforge-js
     - theme: alt
-      text: Npm
+      text: npm
       link: https://www.npmjs.com/package/curseforge-js
 
 features:
