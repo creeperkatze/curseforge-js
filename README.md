@@ -12,7 +12,7 @@ A framework-agnostic JavaScript client for the [CurseForge API](https://docs.cur
 
 [📚 Docs](https://curseforge-js.creeperkatze.dev/) •
 [🚀 Getting Started](https://curseforge-js.creeperkatze.dev/guide/getting-started) •
-[📖 API Reference](https://curseforge-js.creeperkatze.dev/api/) •
+[📖 API Reference](https://curseforge-js.creeperkatze.dev/api) •
 [📝 Changelog](https://github.com/creeperkatze/curseforge-js/releases)
 
 ## 📦 Installation
