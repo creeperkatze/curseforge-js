@@ -1,6 +1,6 @@
 # curseforge-js
 
-A framework-agnostic JavaScript client for the [CurseForge API](https://docs.curseforge.com).
+A framework-agnostic fully typed JavaScript client for the [CurseForge API](https://docs.curseforge.com/rest-api/).
 
 [![NPM Version](https://img.shields.io/npm/v/curseforge-js)](https://www.npmjs.com/package/curseforge-js)
 [![NPM Downloads](https://img.shields.io/npm/dt/curseforge-js)](https://www.npmjs.com/package/curseforge-js)
