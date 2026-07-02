@@ -10,6 +10,9 @@ A framework-agnostic JavaScript client for the [CurseForge API](https://docs.cur
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/creeperkatze/curseforge-js)](https://github.com/creeperkatze/curseforge-js/pulls)
 [![GitHub Repo stars](https://img.shields.io/github/stars/creeperkatze/curseforge-js?style=flat)](https://github.com/creeperkatze/curseforge-js/stargazers)
 
+[📚 Docs](https://curseforge-js.creeperkatze.dev/) •
+[🚀 Getting Started](https://curseforge-js.creeperkatze.dev/guide/getting-started) •
+[📖 API Reference](https://curseforge-js.creeperkatze.dev/api/) •
 [📝 Changelog](https://github.com/creeperkatze/curseforge-js/releases)
 
 ## 📦 Installation
