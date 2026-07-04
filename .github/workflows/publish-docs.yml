@@ -31,14 +31,12 @@ jobs:
               with:
                   images: ghcr.io/creeperkatze/curseforge-js
                   tags: |
-                      type=raw,value=latest
-                      type=ref,event=branch
-                      type=sha
+                      type=semver,pattern={{version}}
+                      type=semver,pattern={{major}}.{{minor}}
+                      type=semver,pattern={{major}}
                   labels: |
                       org.opencontainers.image.title=curseforge-js docs
                       org.opencontainers.image.description=VitePress and TypeDoc site for curseforge-js
-                      org.opencontainers.image.licenses=AGPL-3.0-only
-                      org.opencontainers.image.source=https://github.com/creeperkatze/curseforge-js
 
             - name: Login to GitHub Container Registry
               uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
