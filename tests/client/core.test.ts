@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach } from 'vitest';
 import { createTestClient } from '../utils/client.js';
 import { jsonResponse, errorResponse } from '../utils/http.js';
 import { CurseForgeError } from '../../src/errors.js';
@@ -61,5 +61,27 @@ describe('CurseForgeClientCore', () => {
       expect((err as CurseForgeError).message).toBe('Not found');
       expect((err as CurseForgeError).status).toBe(404);
     }
+  });
+
+  describe('default fetch binding', () => {
+    const originalFetch = globalThis.fetch;
+
+    afterEach(() => {
+      globalThis.fetch = originalFetch;
+    });
+
+    it('invokes the default globalThis.fetch with a `this` receiver it accepts', async () => {
+      // Simulates a browser's branded fetch, which throws "Illegal invocation" if `this` isn't `window`.
+      globalThis.fetch = function () {
+        if (this !== globalThis) {
+          throw new TypeError("Failed to execute 'fetch' on 'Window': Illegal invocation");
+        }
+        return Promise.resolve(jsonResponse({ data: [], pagination: {} }));
+      } as typeof fetch;
+
+      const client = new CurseForgeClient();
+
+      await expect(client.games.list()).resolves.toEqual({ data: [], pagination: {} });
+    });
   });
 });
